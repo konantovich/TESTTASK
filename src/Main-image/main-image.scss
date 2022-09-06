@@ -1,0 +1,24 @@
+
+
+
+
+.main-image-item {
+ 
+//  width: 1170px;
+//  height: 650px;
+ //background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) !important;
+ //filter: grayscale(0.5);
+//  filter: saturate(50%) !important; 
+//  filter: brightness(50%) !important;
+}
+
+.main-image-item {
+ 
+    max-width: 100% !important;
+    z-index: 2;
+
+    filter: saturate(50%) !important; 
+    filter: brightness(50%) !important;
+    background: rgba(100, 0, 0, 0.5) !important;
+
+}
