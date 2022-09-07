@@ -71,10 +71,11 @@ const Register = ({handleScrollUsers}) => {
 
    const onSubmit =  (e) => {
 
-      let dataWithImage = { ...e, phone: '+38' + e.phone, position_id: value };
+      let dataWithImage = { ...e,  email: e.email.toLowerCase(), phone: '+38' + e.phone, position_id: value };
       if (photo) {
          dataWithImage = {
             ...e,
+            email: e.email.toLowerCase(),
             phone: '+38' + e.phone,
             position_id: value,
             photo
@@ -164,7 +165,7 @@ const Register = ({handleScrollUsers}) => {
                      placeholder='Phone( example 0991112233)'
                      color='secondary'
                      //  inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                     type='number'
+                    //  type='number'
                      //  value={`+380`+ phoneValue}
 
                      label='Phone'
@@ -175,21 +176,21 @@ const Register = ({handleScrollUsers}) => {
                         'phone',
                         {
                            pattern: {
-                              value: /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g,
+                               value: /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g,
                               message:
                                  'invalid phone number(example 0991113322)' // JS only: <p>error message</p> TS only support string
                            }
                         },
                         {
                            minLength: {
-                              value: 9,
-                              message: 'Need 10 or more symbols' // JS only: <p>error message</p> TS only support string
+                              value: 8,
+                              message: 'Need 8 or more symbols' // JS only: <p>error message</p> TS only support string
                            }
                         },
                         {
                            maxLength: {
-                              value: 11,
-                              message: 'Maximum 11 symbols' // JS only: <p>error message</p> TS only support string
+                              value: 12,
+                              message: 'Maximum 12 symbols' // JS only: <p>error message</p> TS only support string
                            }
                         },
                         { required: 'Enter the phone' }
