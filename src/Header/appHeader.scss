@@ -1,5 +1,4 @@
 
-
 .img-logo {
     width: 100px;
 }
@@ -8,6 +7,14 @@
     margin: 17px 0px 17px 0px;
     display: flex;
     justify-content: space-between;
+   
 }
 
-.app-header-right-side {}
+
+@media (max-width: 363px){
+    .app-header-right-side button{
+        width: 80px !important;
+        height: 20px !important;
+        font-size: 10px !important;
+    }
+}

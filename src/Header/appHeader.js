@@ -28,7 +28,7 @@ const AppHeader = ({handleScrollUsers, handleScrollSignUp}) => {
    return (
    
       <div className='app-header'>
-         <AppBar position='static' sx={{ height: 60, justifyContent: 'space-between', background:theme.palette.background.main }}>
+         <AppBar position='static' sx={{  height: 60, justifyContent: 'space-between', background:theme.palette.background.main }}>
          <Container>
         <div className='app-header-items'> 
          <img className='img-logo' src='assets/Logo.svg' alt='Logo' />

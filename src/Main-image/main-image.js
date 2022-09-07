@@ -2,12 +2,13 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import { CardMedia } from '@mui/material';
 import { Button, Typography,Container } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { StyledButton } from '../Header/appHeader';
 
 import './main-image.scss';
 
-const MainImage = () => {
+const MainImage = ({handleScrollSignUp}) => {
    return (
       <Container
          className='main-image'
@@ -20,11 +21,12 @@ const MainImage = () => {
       >
         <div className='shadow'>
          <Box 
+            className='image-text'
             sx={{
                display: 'flex',
                flexDirection: 'column',
                position: 'absolute',
-               top: '50%',
+               top: '350px',
                left: '50%',
                transform: 'translate(-50%, -50%)',
              
@@ -55,6 +57,7 @@ const MainImage = () => {
             <StyledButton
                variant='contained'
                color='primary'
+               onClick={handleScrollSignUp}
                sx={{
                   justifyContent: 'center',
                   alignContent: 'center',

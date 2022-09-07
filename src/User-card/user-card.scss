@@ -1,0 +1,26 @@
+@media (max-width: 800px){
+    .user-card-show-button{
+        margin-left: -15px !important
+    }
+}
+
+@media (max-width: 510px) {
+    .working-title{
+        // margin: auto !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .user-card-show-button{
+        padding: auto !important;
+        margin-left: -30px !important;
+    }
+
+    
+    .working-title{
+         margin-top: 240px !important;
+
+    }
+}
+
