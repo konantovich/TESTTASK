@@ -132,7 +132,7 @@ const UserCard = () => {
             {loading ? (
                <CircularProgress color='secondary'></CircularProgress>
             ) : (
-               users.map((user, index) => {
+               users.sort((b,a)=>a.registration_timestamp - b.registration_timestamp).map((user, index) => {
                   //.sort((a,b)=>a.registration_timestamp - b.registration_timestamp)
                   return (
                      <Card

@@ -1,14 +1,27 @@
+.user-image {
+   width: 40px;
+   height: 40px;
+   object-fit: cover;
+   margin-top: -5px;
+   margin-right: 5px;
+}
 
+.photo-uploaded {
+   display: flex;
+}
 
 @media (max-width: '390px') {
-    .register-page{
-         width: 90% !important;
-        margin: auto !important;
-        align-items: center !important;
-        justify-content: center !important;
+   .register-page {
+      width: 90% !important;
+      margin: auto !important;
+      align-items: center !important;
+      justify-content: center !important;
+   }
+   .photo-upload {
+      width: 95% !important;
+   }
 
-    }
-    .photo-upload{
-        width: 95% !important;
-    }
+   .photo-uploaded {
+      font-size: 14px;
+   }
 }

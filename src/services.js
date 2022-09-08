@@ -13,6 +13,7 @@ export const fetchUsers = async (pageUsers) => {
 };
 
 export const fetchRegisterUser = async (formData, token) => {
+   console.log('axios',formData)
    return await axios
       .post('/api/v1/users', formData, {
          headers: {
