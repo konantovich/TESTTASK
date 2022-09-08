@@ -24,4 +24,15 @@
    .photo-uploaded {
       font-size: 14px;
    }
+   .spinner-register{
+    margin-left: 140px !important;
+   }
+}
+
+@media (max-width: 360px) {
+
+    .spinner-register{
+        margin-left: 133px !important;
+       }
+    
 }

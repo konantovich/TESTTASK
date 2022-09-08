@@ -20,7 +20,7 @@ const Register = ({ handleScrollUsers }) => {
    const [value, setValue] = React.useState(1);
    const [positions, setPositions] = React.useState([]);
    const [myToken, setMyToken] = React.useState({});
-   const [loading, setIsLoading] = React.useState(true);
+   const [loading, setIsLoading] = React.useState(false);
    const [phoneValidationValue, setPhoneValidationValue] =
       React.useState('+380');
 
@@ -28,11 +28,10 @@ const Register = ({ handleScrollUsers }) => {
       React.useContext(UpdateUserCard);
 
    //photo image upload
-   const [photo, setPhoto] = React.useState('');
+   const [photo, setPhoto] = React.useState();
    const inputFileRef = React.useRef(null);
    const handleChangeFile = async (event) => {
       try {
-         const formData = new FormData();
          const file = event.target.files[0]; //image
          if (!file.name.match(/\.(jpg|jpeg)$/i)) {
             alert('not an jpg/jpeg photo format');
@@ -58,7 +57,7 @@ const Register = ({ handleScrollUsers }) => {
    }, []);
 
    const onClickRemoveImage = () => {
-      setPhoto(''); //delete image
+      setPhoto(null); //delete image
    };
 
    const {
@@ -77,8 +76,8 @@ const Register = ({ handleScrollUsers }) => {
       mode: 'onChange'
    });
 
-   const onSubmit = (e) => {
-      console.log(e.phone);
+   const onSubmit = async (e) => {
+      console.log('e.target', e);
       let dataWithImage = {
          ...e,
          email: e.email.toLowerCase(),
@@ -93,18 +92,27 @@ const Register = ({ handleScrollUsers }) => {
          };
       }
 
+      setIsLoading(true);
+
       fetchRegisterUser(dataWithImage, myToken)
          .then((res) => {
             console.log('response', res.data);
+
             setUpdateUserCardAfterReg(!updateUserCardAfterReg);
-            handleScrollUsers();
             setIsLoading(false);
+            handleScrollUsers();
 
             //clear form if reg submit
-            reset();
+            reset(e.target);
+
             setPhoneValidationValue('+380');
-            setPhoto('');
+            setPhoto(null);
             setValue(1);
+
+            setTimeout(() => {
+               handleScrollUsers();
+               setIsLoading(false);
+            }, 500);
          })
          .catch((error) => {
             const err = error.response.data.fails;
@@ -326,6 +334,15 @@ const Register = ({ handleScrollUsers }) => {
                         )}
                      </Box>
                   </Box>
+                  {loading ? (
+                     <CircularProgress
+                     className='spinner-register'
+                        color='secondary'
+                        sx={{ position: 'absolute', mt: '-50px', ml: '160px' }}
+                     ></CircularProgress>
+                  ) : (
+                     <div></div>
+                  )}
                   <StyledButton
                      type='submit'
                      variant='contained'
@@ -337,7 +354,7 @@ const Register = ({ handleScrollUsers }) => {
                      }}
                      disabled={!isValid || !photo}
                   >
-                     Sign up
+                     {loading ? 'Loading' : 'Sign up'}
                   </StyledButton>
                </form>
             </Box>
